@@ -1,0 +1,922 @@
+$body-bg-color: rgb(31, 31, 31);
+$element-bg-color: rgb(244, 244, 244);
+
+body {
+    scroll-behavior: smooth;
+    background: $body-bg-color;
+    margin: 0;
+    min-width: 348px;
+}
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+    width: 4px;
+    margin-top: 5px;
+    cursor: pointer;
+    background-color: #03eaff;
+}
+
+.navbar{
+    display: flex;
+    width: 100%;
+    top: 0;
+    height: 41px;
+    box-shadow: 2px 0px 7px 0px #1379d1;
+    background-color: $body-bg-color;
+    position: fixed;
+    z-index: 3;
+
+    .navbarContainerUl {
+        display: flex;
+        gap: 155px;
+        width: 100%;
+        font-size: 14px;
+        justify-content: space-around;
+        list-style-type: none;
+        font-family: cursive;
+    
+        li {
+            color: $element-bg-color;
+            cursor: pointer;
+        }
+    }
+    
+    a {
+        text-decoration: none;
+        color: $element-bg-color;
+    }
+}
+            .closeSearchBarIcon{
+                position: absolute;
+                color: $element-bg-color;
+                display: block;
+                cursor: pointer;
+                font-size: 17px;
+                left: 70%;
+                top: 12vh;
+            }
+
+            .searchUserInput {
+                display: block;
+                width: 35%;
+                height: 35px;
+                text-indent: 5px;
+                border: none;
+                color: $element-bg-color;
+                box-shadow: 0px 0px 4px 0px #03eaff;
+                min-width: 255px;
+                border-radius: 5px;
+                background-color: #2d2d2d;
+                margin-right: auto;
+                margin-left: auto;
+                margin-top: 20vh;
+
+                &::placeholder {
+                    color: $element-bg-color;
+                }
+
+                &:focus {
+                    outline: 1px solid $element-bg-color;
+                }
+            }
+        
+    
+
+        .userSearchResultContainer {
+            display: block;
+            width: 35%;
+            min-width: 255px;
+            box-shadow: 0px 1px 12px #03eaff;
+            margin-top: 3px;
+            z-index: 4;
+            cursor: default;
+            border-radius: 5px;
+            background-color: #4a4a4a;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: fit-content;
+            max-height: 38vh;
+            padding-bottom: 3px;
+            padding-top: 2px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            animation-name: searchresultDivAppear;
+            animation-duration: 1s;
+
+            @keyframes searchresultDivAppear {
+                from {
+                    min-height: 0;
+                    max-height: 0;
+                }
+
+                to {
+                    min-height: fit-content;
+                    max-height: 58vh;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                width: 4px;
+                margin-top: 5px;
+                cursor: pointer;
+                background-color: #03eaff;
+            }
+
+            .usersUl {
+                margin-left: -40px;
+                display: block;
+
+                .userLi {
+                    cursor: pointer;
+                    list-style-type: none;
+                    margin-bottom: 8px;
+
+            .userDiv {
+                position: relative;
+                display: flex;
+                color: $element-bg-color;
+                margin: 5px;
+                width: 98%;
+                height: 50px;
+                background-color: #2a545d;
+                outline: 1px solid $element-bg-color;
+
+                .nameLastName {
+                    margin-left: 50%;
+                }
+
+            .profileDivSearch {
+                position: absolute;
+                left: 0;
+                color: $element-bg-color;
+                background-color: rgb(116, 7, 218);
+                text-align: center;
+                line-height: 55px;
+                font-size: 28px;
+                width: 55px;
+                height: 100%;
+            }
+            }
+        }
+    }
+}
+        
+.registerDiv {
+    width: 40%;
+    min-width: 270px;
+    display: block;
+    margin: 220px auto;
+
+    &__input {
+        width: 98%;
+        height: 35px;
+        background-color: $element-bg-color;
+        margin-bottom: 15px;
+        text-indent: 5px;
+        border-radius: 7px;
+        font-family: cursive;
+        padding-right: 8px;
+    }
+
+    &__registerBtn{
+        width: 40%;
+        height: 35px;
+        display: block;
+        margin: 25px auto;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            background-color: rgb(202, 202, 202);
+        }
+    }
+}
+
+.loginDiv{
+    @extend .registerDiv;
+    margin-top: 250px;
+
+    &__input {
+        @extend .registerDiv__input;
+    }
+
+    &__loginBtn {
+        @extend .registerDiv__registerBtn;
+    }
+}
+
+.chatNavbar{
+    top: 40px;
+    position: fixed;
+    width: 55px;
+    left: 0;
+    z-index: 2;
+    color: black;
+    overflow-y: scroll;
+    font-size: 15px;
+    transition: 0.20s;
+    box-shadow: 2px 0px 7px 0px #0089be;
+    background-color: $body-bg-color;
+    height: 100%;
+
+    &::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        height: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    ul {
+        width: 98%;
+        margin-left: -35px;
+        margin-bottom: 30px;
+
+        li {
+            position: relative;
+            list-style-type: none;
+            background-color: #353535;
+            font-size: 22px;
+            width: 45px;
+            height: 37px;
+            user-select: none;
+            border: 1px solid #353535;
+            line-height: 37px;
+            color: #0089be;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .currentChatFriend {
+            animation: borderAppear 1 ease-in-out 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .messageNotifIcon{
+            position: absolute;
+            transition: 1s;
+            color: #a1f7ff;
+            top: -1px;
+            left: 75%;
+            font-size: 14px;
+        }
+
+        @keyframes borderAppear {
+            0% {
+                border-left: 1px groove #0089be;
+            } 
+            25% {
+                border-top: 1px groove #0089be;
+            } 
+
+            50% {
+                border-right: 1px groove #0089be;
+            }
+            
+            75% {
+                border-bottom: 1px groove #0089be;
+            } 
+            100% {
+                border: 1px groove #0089be;
+            } 
+        }
+    }
+}
+
+.chatMessagesContainer{
+    position: absolute;
+    display: flex;
+    min-width: 348px;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    top: 12vh;
+    width: 100%;
+    height: 68vh;
+    flex-direction: column-reverse;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        height: 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: rgb(33, 129, 98);
+    }
+
+    &__ul {
+        display: block;
+        margin-left: 20%;
+
+        li {
+            position: relative;
+            display: block;
+            list-style-type: none;
+            margin-bottom: 45px; 
+            width: 70%;
+            height: fit-content;
+            animation-name: appear;
+            animation-duration: 1s;
+
+            @keyframes appear {
+                from {
+                    opacity: .1;
+                }
+                
+                to {
+                    opacity: 1;
+                } 
+
+            }
+
+            .profileDivMe {
+                position: absolute;
+                display: block;
+                background-color: #1e1e1e;
+                width: 40px;
+                margin-left: 5px;
+                height: 40px;
+                user-select: none;
+                border-radius: 50%;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                border: none;
+                font-size: 28px;
+                color: #eaeaea;
+                text-align: center;
+                line-height: 40px;
+                box-shadow: 0px 0px 10px 1px #1379d1;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .profileDivUser {
+                @extend .profileDivMe;
+                box-shadow: 0px 0px 10px 1px #b23817;
+            }
+
+            .senderName {
+                display: block;
+                margin-top: 0;
+                margin-left: 70px;
+                font-size: 17px;
+                color: #98d1f1;
+            }
+
+            .messageContent {
+                display: flex;
+                word-break: break-all;
+                display: block;
+                color: rgb(255, 255, 255);
+                margin-left: 70px;
+                width: fit-content;
+                height: fit-content;
+                max-width: 82%;
+                padding: 5px;
+                margin-top: -15px;
+                border-radius: 10px;
+                background-color: rgb(0, 151, 101);
+                
+            }
+
+            .messageDateAndTime{
+                margin-top: 0;
+                display: block;
+                width: fit-content;
+                text-align: center;
+                font-size: 12px;
+                margin-left: 85%;
+                color: #999999;
+            }
+
+                .deleteMsgBtn {
+                    border-radius: 5px;
+                    width: 75%;
+                    height: 38px;
+                    margin-bottom: 2px;
+                    border: 3px groove #3d0100;
+                    cursor: pointer;
+                    transition: 1s;
+                    user-select: none;
+                    color: #a40703;
+                    background-color: $body-bg-color;
+                }
+
+                .hideMsgBtn {
+                    @extend .deleteMsgBtn;
+                    background-color: rgb(36, 36, 36);
+                    color: $element-bg-color;
+                    border: 3px groove #191919;
+                }
+
+                .cancelDltMsg{
+                    @extend .deleteMsgBtn;
+                    border: 3px groove #0089be;
+                    color: #0089be;
+                }
+            
+            .messageEllipsisIcon{
+                cursor: pointer;
+                margin-left: 95%;
+                margin-top: 15px;
+                translate: (-95%, -15px);
+                color:$element-bg-color;
+            }
+
+        }
+    }
+
+    .seenIcon {
+        font-size: 16px;
+        margin-left: 10%;
+        color: #999999;
+    }
+
+    
+}
+
+.requestToChatDiv {
+        width: 70%;
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 55px;
+        //transform: translate(-50%, 0%);
+
+        h5 {
+            color: #ff5252;
+            font-size: 18px;
+        }
+
+        .requestBtn {
+            background-color: rgb(17, 255, 176);
+            width: fit-content;
+            padding: 8px;
+            height: 35px;
+            transition: .50s;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .removeRequestBtn{
+            @extend .requestBtn;
+            background-color: rgb(99, 226, 175);
+        }
+    }
+.chatFormContainer{
+    &__textInput {
+        display: block;
+        margin-top: 90vh;
+        scroll-behavior: smooth;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $element-bg-color;
+        width: 45%;
+        box-shadow: 0px 0px 5px -1px #eaeaea;
+        border-radius: 15px;
+        text-indent: 5px;
+        height: 35px;
+        border: none;
+    }
+
+    &__sendBtn {
+        display: block;
+        height: 35px;
+        width: 55px;
+        box-shadow: 0px 0px 5px -1px #eaeaea;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: -37px;
+        margin-left: 73%;
+        background-color: rgb(15, 199, 138);
+    }
+
+    .deleteAllMessagesIcon{
+        display: block;
+        font-size: 18px;
+        color: #cd0502;
+        cursor: pointer;
+        margin-left: 80%;
+        margin-top: -25px;
+        
+    }
+}
+
+.notificationContainer{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 87%;
+    left: 95%;
+    transform: translate(-95%, -90%);
+    border-radius: 50%;
+    background-color: #000000;
+    box-shadow: 0px 0px 10px 1px #1379d1;
+
+    .hasNotificationsIcon{
+        position: absolute;
+        top: 9px;
+        left: 70%;
+        width: 8px;
+        height: 8px;
+        background-color:#c00058 ;
+        border-radius: 50%;
+    }
+
+    .bellIcon {
+        width: 22px;
+        margin-top: 15px;
+        margin-left: 14px;
+        font-size: 22px;
+        color:  #bcbcbc;    
+        animation-name: appear;
+        animation-duration: 1s;
+    }
+
+}
+
+.notificationContainerOpen {
+    position: fixed;
+    top: 90%;
+    left: 95%;
+    transform: translate(-95%, -90%);
+    width: 240px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 12px #03eaff;
+    border-radius: 5px;
+    background-color: #4a4a4a;
+    padding-top: 5px;
+    min-height: fit-content;
+    max-height: 58vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    animation-name: appear;
+    animation-duration: 1s;
+
+    .closeIcon {
+        position: sticky;
+        top: 8px;
+        left: 90%;
+        color: $element-bg-color;
+
+        cursor: pointer;
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 15px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        width: 2px;
+        height: 15px;
+        cursor: pointer;
+        background-color: #03eaff;
+    }
+
+    .usersUlNotif {
+        width: 92%;
+        display: block;
+        margin-left: -35px;
+
+        .userLiNotif{
+            border: 1px solid white;
+            width: 100%;
+            min-height: 60px;
+            height: fit-content;
+            margin-bottom: 8px;
+            padding: 5px;
+            list-style-type: none;
+            background-color: #bebebe;
+            border-radius: 5px;
+            text-align: center;
+            .nameLastNameNotif {
+                margin-top: 5px;
+            }
+
+            .acceptRefuseBtnsDiv{
+                width: 100%;
+                display: flex;
+                gap: 5px;
+                justify-content: center;
+                margin-top: -10px;
+
+                .acceptBtn{
+                    height: 25px;
+                    width: 75px;
+                    background-color: #1379d1;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                .refuseBtn{
+                    @extend .acceptBtn;
+                    background-color: #ff5252;
+                }
+            }
+        }
+    }
+
+}
+    
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.Link {
+    text-decoration: none;
+}
+
+.coverPageFormDiv{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 5;
+    background-color: hsla(0, 0%, 14%, 0.8);
+    user-select: none;
+
+    h5{
+        color: $element-bg-color;
+        font-size: 15px;
+    }
+
+    &__container {
+        width: fit-content;
+        height: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 35vh;
+        text-align: center;
+    }
+
+    &__btnsContainer{
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    &__deleteBtn{
+        background-color: #1c1c1c;
+        color: $element-bg-color;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 3px groove #cd0603;
+        width: 125px;
+        height: 25px;
+    }
+
+    &__cancelBtn{
+        @extend .coverPageFormDiv__deleteBtn;
+        border: 3px groove #006891;
+    }
+
+    .deleteProfileContainer{
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 28px;
+
+        input {
+            width: 100%;
+            border-radius: 5px;
+            height: 25px;
+            text-indent: 5px
+        }
+
+        p {
+            color: rgb(254, 49, 49);
+        }
+    }
+}
+
+.noMessageYetH5{
+    position: absolute;
+    width: 350px;
+    top: 28vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 35px;
+    color: #FFFFFF;
+    font-family: monospace;
+    text-shadow: 1px 3px 0 #0089be, 1px 6px 5px #0089be, 2px 2px 2px rgba(206, 89, 55, 0);
+    color: $element-bg-color
+}
+
+    
+.changePasswordDiv{
+    margin-top: 55px;
+    display: block;
+    gap: 5px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    h3 {
+        margin-top: 0;
+        color: #0089be;
+    }
+
+    input {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        width: 80%;
+        text-indent: 5px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        height: 30px;
+    }
+
+    input::placeholder{
+        font-size: 15px;
+    }
+
+    button {
+        width: 25%;
+        min-width: fit-content;
+        height: 35px;
+        cursor: pointer;
+        background-color: #0089be;
+        color: #000000;
+    }
+}
+
+
+.userNameFirstLetterDiv{
+    position: relative;
+    list-style-type: none;
+    background-color: #353535;
+    font-size: 220px;
+    width: 255px;
+    height: 255px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15vh;
+    user-select: none;
+    box-shadow: 0px 0px 5px 1px #0089be;
+    line-height: 250px;
+    color: #0089be;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.userInfoDiv{
+    display: block;
+    width: 50%;
+    word-break: break-all;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+
+    h5 {
+        text-align: center;
+        font-size: 25px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: $element-bg-color;
+    }
+
+    hr {
+        width: 100%;
+    }
+}
+
+.deleteChatDiv{
+    width: fit-content;
+        display: block;
+        text-align: center;
+        margin-left: 50%;
+        margin-bottom: 15px;
+        transform: translate(-50%, 0%);
+
+
+        button {
+            background-color: $body-bg-color;
+            color: $element-bg-color;
+            width: 280px;
+            border-radius: 5px;
+            height: 35px;
+            cursor: pointer;
+            border: 4px groove #3d0100;
+        }
+}
+
+.goToChatDiv{
+    @extend .deleteChatDiv;
+    margin-bottom: 55px;
+
+    button {
+        border: 2px groove #0089be;
+    }
+}
+
+.deleteProfileDiv {
+    display: block;
+    width: fit-content;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+
+    button {
+        height: 35px;
+        width: 280px;
+        background-color: $body-bg-color;
+        border: 4px groove #3d0100;
+        color:$element-bg-color;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar{
+        .navbarContainerUl {
+                gap: 8%;
+        }
+    }
+    .chatFormContainer{
+        .deleteAllMessagesIcon{
+            margin-left: 85%;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .chatMessagesContainer {
+        &__ul {
+            margin-left: 8%;
+            li {
+                width: 90%;
+            }
+        }
+    }
+    .noMessageYetH5{
+        font-size: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .closeSearchBarIcon {
+            left: 85%;
+    }
+
+    .chatFormContainer {
+        .deleteAllMessagesIcon {
+            margin-left: 93%;
+        }
+    }
+    .noMessageYetH5{
+        font-size: 15px;
+        width: 260px;
+        margin-left: 22%;
+        //min-width: 60%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .profile {
+        margin-left: 55px;
+    }
+
+    .requestToChatDiv {
+        margin-left: 85px;
+    }
+}
+
+.welcomeToChatH5{
+    width: fit-content;
+    user-select: none;
+    color: $element-bg-color;
+    text-shadow: 1px 3px 0 #0089be, 1px 6px 5px #0089be, 2px 2px 2px rgba(206, 89, 55, 0);
+    margin-top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+}
