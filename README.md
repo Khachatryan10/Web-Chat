@@ -9,7 +9,7 @@ npm install --save @fortawesome/react-fontawesome <br />
 npm install --save @fortawesome/react-fontawesome <br />
 
 Backend <br />
-python -m pip install -U 'channels[daphne]' <br />
+python3 -m pip install -U 'channels[daphne]' <br />
 docker run --rm -p 6379:6379 redis:7 <br />
 python3 -m pip install channels_redis <br />
 pip install djangorestframework <br />
