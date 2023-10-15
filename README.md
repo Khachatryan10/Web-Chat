@@ -6,7 +6,6 @@ npm install --save-dev @babel/plugin-proposal-private-property-in-object <br />
 npm i --save @fortawesome/fontawesome-svg-core <br />
 npm install --save @fortawesome/free-solid-svg-icons <br />
 npm install --save @fortawesome/react-fontawesome <br />
-npm install --save @fortawesome/react-fontawesome <br />
 
 Backend <br />
 python3 -m pip install -U 'channels[daphne]' <br />
